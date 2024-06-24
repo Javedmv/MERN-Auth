@@ -13,6 +13,10 @@ const userSchema = mongoose.Schema({
     password:{
         type:String,
         required:[true,'please enter the password']
+    },
+    isBlock:{
+        type:Boolean,
+        default: false
     }
 },{
     timestamps:true
