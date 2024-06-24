@@ -7,8 +7,8 @@ router.route('/login').post(adminLogin);
 router.route('/').get(protect, getUser);
 router.route('/block').post(protect, userBlock)
 router.route('/unblock').post(protect, userUnblock)
-router.route('/:userId').post(protect, editUser);
-router.route('/search',searchUser);
+router.route('/:userId').put(protect, editUser);
+router.route('/search').post(searchUser);
 
 
 module.exports = router;

@@ -44,7 +44,7 @@ const userBlock = asyncHandler(async(req,res) => {
 
 const userUnblock = asyncHandler(async(req,res) => {
     const userId = req.body.userId;
-    const user = await userModal.findByIdAndUpdate(userId,{isBlock:true});
+    const user = await userModal.findByIdAndUpdate(userId,{isBlock:false});
     const users = await userModal.find();
     if(users){
         res.status(200).json({users})
@@ -56,7 +56,7 @@ const userUnblock = asyncHandler(async(req,res) => {
 
 const editUser = asyncHandler(async (req,res) => {
     const {userId, name, email} = req.body;
-    const user = user.findByIdAndUpdate(userId,{name,email},{new:true});
+    const user = await userModal.findByIdAndUpdate(userId,{name,email},{new:true});
     const users = await userModal.find();
     if(users){
         res.status(200).json({users})
